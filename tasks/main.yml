@@ -27,6 +27,11 @@
 - name: Remove secret key from remote host
   file: path="/tmp/{{ aptly_secret_key_file }}" state=absent
 
+- name: dummy dir 
+  file: path="/home/{{ aptly_user}}/.aptly/public" state=directory
+  when: aptly_repositories is not defined
+
+
 - name: Create repositories
   shell: >
         (aptly repo list -raw | grep -q "{{ item.name }}" )
