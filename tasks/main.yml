@@ -1,0 +1,6 @@
+-
+    name: Install aptly debian repository
+    apt_repository: repo='deb http://repo.aptly.info/ squeeze main' state=present update_cache=yes
+-
+    name: Import aptly key
+    apt_key: id=2A194991 keyserver=keys.gnupg.net state=present
